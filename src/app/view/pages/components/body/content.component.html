@@ -1,0 +1,64 @@
+<div class="card-body content">
+  <div class="text-center">
+    <h1>Cartazes</h1>
+    <p class="description">
+      Relemebre aqui o cartaz daquele filme que faz parte de sua memória
+       e relembre também detalhes sobre a história do filme.
+    </p>
+  </div>
+  <form>
+    <div class="form-row form" [formGroup]="filmForm">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <input
+          type="text"
+          class="form-control search"
+          formControlName="filmName"
+          placeholder="Digite aqui o nome do filme"
+          id="search"
+          (keyup.enter)="getFilm(this.filmForm.get('filmName')?.value)"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-primary form"
+          (click)="getFilm(this.filmForm.get('filmName')?.value)"
+        >Procurar</button>
+        <button
+          type="button"
+          class="btn btn-outline-danger form"
+          (click)="reset()"
+        >Limpar</button>
+      </div>
+    </div>
+  </form>
+  <div class="card mt-5" *ngIf="showCard">
+    <div class="row g-0 information">
+      <div class="col-md-4 m-3">
+        <img
+          [src]="filmPoster"
+          class="img-fluid rounded-start"
+          alt="poster"
+        />
+      </div>
+      <div class="col-md-7 my-3">
+        <h4>{{ filmTitle }} </h4><p><small>{{ filmYear }}</small></p>
+        <p>{{ filmPlot }}</p>
+        <p class="me-2"><strong>Actors:</strong>{{ filmActors }}</p>
+        <div class="d-flex">
+          <p class="me-2"><strong>Review:</strong></p>
+          <bar-rating [rate]="filmRating" [max]="10">
+            <ng-template ratingInactive>
+              <fa-icon 
+                [icon]="faStar"
+                [fixedWidth]="true"
+                size="sm"
+                style="color: #ff0"
+              ></fa-icon>
+            </ng-template>
+          </bar-rating>
+          <p class="ms-2">{{ filmRatings }}</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-warning"><i class="bi bi-bookmarks">Favoritar</i></button>
+      </div>
+    </div>
+  </div>
+</div>

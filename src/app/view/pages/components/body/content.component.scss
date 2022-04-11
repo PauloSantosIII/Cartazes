@@ -1,0 +1,56 @@
+div.content {
+  width: 60vw;
+  padding: 10vw 0;
+  margin: 0 20vw;
+  font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 1000px) {
+    width: 90vw;
+    margin: 0 5vw;
+
+    div.information {
+      text-align: center;
+
+      img {
+        max-width: 500px;
+        max-height: 400px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: large;
+      text-decoration: double;
+    }
+
+    p.description {
+      font-size: smaller;
+    }
+
+    input.search {
+      width: 70vw;
+      margin: 0 15vw;
+    }
+    
+    button.form {
+      width: 30vw;
+      margin: auto;
+    }
+
+    div.information {
+      h4 {
+        font-size: medium;
+      }
+
+      p {
+        font-size: smaller;
+      }
+
+      img {
+        max-width: 300px;
+        max-height: 200px;
+      }
+    }
+  }
+}
