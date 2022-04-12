@@ -1,3 +1,4 @@
+import { CriptografiaService } from './../../core/services/criptografia.service';
 import { Component, OnInit } from '@angular/core'
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core'
 })
 export class PagesComponent implements OnInit {
   
-  constructor() { }
+  constructor(
+    private c: CriptografiaService
+  ) { }
 
   ngOnInit() {
+    this.c.encriptar('7d1798ae')
   }
 
 }
